@@ -1,0 +1,40 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////CREATE
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////REVIEW
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////UPDATE
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////DELETE
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * CREATE */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * REVIEW */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * UPDATE */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * DELETE */
+
+
+/* CREATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* REVIEW * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* DELETE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+//void
+    String sql = "";
+    try (Connection con = sql2o.open()) {
+        return
+    } catch (Sql2oException ex) {
+        System.out.println(ex);
+    }
+}
+
+//not void
+    String sql = "";
+    try (Connection con = sql2o.open()) {
+    return con.createQuery(sql)
+    }
+}
+
+//Test boilerplate.
+    Location location1 = new Location("Sandy River Delta", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
+    daoLocation.add(location1);
+
+    Location location2 = new Location("1000 Acres", "Absolutely enormous off-leash dog park.");
+    daoLocation.add(location2);
+
+    assertEquals("Sandy River Delta", daoLocation);
