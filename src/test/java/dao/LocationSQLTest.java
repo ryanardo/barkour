@@ -51,7 +51,14 @@ public class LocationSQLTest {
     }
 
     @Test
-    public void findAll() throws Exception {
+    public void findAll_canFindAllLocations_true() throws Exception {
+        Location location1 = new Location("Sandy River Delta", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
+        daoLocation.add(location1);
+
+        Location location2 = new Location("1000 Acres", "Absolutely enormous off-leash dog park.");
+        daoLocation.add(location2);
+
+        assertEquals(2, daoLocation.getAll().size());
     }
 
     @Test
