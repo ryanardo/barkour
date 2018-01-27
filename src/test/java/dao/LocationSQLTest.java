@@ -32,15 +32,22 @@ public class LocationSQLTest {
     }
 
     @Test
-    public void add_createLocationInstance_true() throws Exception {
+    public void add_createLocation_true() throws Exception {
         Location location1 = new Location("Sandy River Delta", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
         daoLocation.add(location1);
 
-        assertEquals(true, location1 instanceof Location);
+        assertEquals(1, daoLocation.getAll().size());
     }
 
     @Test
-    public void findById() throws Exception {
+    public void findById_canFindLocationById_true() throws Exception {
+        Location location1 = new Location("Sandy River Delta", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
+        daoLocation.add(location1);
+
+        Location location2 = new Location("1000 Acres", "Absolutely enormous off-leash dog park.");
+        daoLocation.add(location2);
+
+        assertEquals("Sandy River Delta", daoLocation.getById(1).getLocation());
     }
 
     @Test
