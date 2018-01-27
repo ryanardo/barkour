@@ -7,17 +7,17 @@ import java.util.List;
  * Created by Guest on 1/26/18.
  */
 public interface ReviewDAO {
-    //CREATE
+    /* CREATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     void add (Review review);
 
-    //READ
-    Review findById(int id);
-    List<Review> findAll();
+    /* REVIEW * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    Review getById(int id);
+    List<Review> getAll();
 
-    //UPDATE
+    /* UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     void updateReview (String title, String review, int rating, int parkId);
 
-    //DELETE
+    /* DELETE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     void deleteById(int id);
     void deleteAll();
 }

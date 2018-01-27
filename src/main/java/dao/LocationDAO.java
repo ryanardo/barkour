@@ -7,17 +7,17 @@ import java.util.List;
  * Created by Guest on 1/26/18.
  */
 public interface LocationDAO {
-    //CREATE
+    /* CREATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     void add (Location location);
 
-    //READ
-    Location findById(int id);
-    List<Location> findAll();
+    /* REVIEW * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    Location getById(int id);
+    List<Location> getAll();
 
-    //UPDATE
+    /* UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     void updateLocation (String location, String description);
 
-    //DELETE
+    /* DELETE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     void deleteById(int id);
     void deleteAll();
 }

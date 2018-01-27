@@ -11,7 +11,7 @@ public class Review {
     private int rating;
     private int parkId;
 
-/* CONSTRUCTORS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* CONSTRUCTORS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     public Review(String title, String review, int rating, int parkId) {
         this.title = title;
         this.review = review;
@@ -19,7 +19,7 @@ public class Review {
         this.parkId = parkId;
     }
 
-/* GETTERS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* GETTERS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     public int getId() {
         return id;
     }
@@ -40,7 +40,7 @@ public class Review {
         return parkId;
     }
 
-/* SETTERS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* SETTERS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     public void setId(int id) {
         this.id = id;
     }
@@ -61,7 +61,7 @@ public class Review {
         this.parkId = parkId;
     }
 
-/* HASH CODE & EQUALS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* HASH CODE & EQUALS * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
