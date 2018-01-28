@@ -86,7 +86,18 @@ public class ParkSQLTest {
     }
 
     @Test
-    public void updatePark() throws Exception {
+    public void updatePark_canUpdatePark_true() throws Exception {
+        Location location1 = new Location("Sandy River Delta", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
+        daoLocation.add(location1);
+        int idLocation1 = location1.getId();
+
+        Park park1 = new Park("1000 Acres", "Dog Park located in the Sandy River Delta (not actually 1000 acres).", idLocation1);
+        daoPark.add(park1);
+        int idPark1 = park1.getId();
+
+        daoPark.updatePark("1000 Acres", "Dog Park located in the Sandy River Delta.", idPark1);
+
+        assertEquals("Dog Park located in the Sandy River Delta.", daoPark.getById(idPark1).getDescription());
     }
 
     @Test

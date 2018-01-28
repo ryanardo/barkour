@@ -57,7 +57,7 @@ public class ParkSQL implements ParkDAO {
             con.createQuery(sql)
                     .addParameter("park", park)
                     .addParameter("description", description)
-                    .addParameter("id", locationId)
+                    .addParameter("locationId", locationId)
                     .executeUpdate();
         }
     }
