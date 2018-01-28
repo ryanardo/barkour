@@ -32,7 +32,7 @@ public class LocationSQLTest {
     }
 
     @Test
-    public void add_createLocation_true() throws Exception {
+    public void add_canCreateLocation_true() throws Exception {
         Location location1 = new Location("Sandy River Delta", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
         daoLocation.add(location1);
 
