@@ -51,10 +51,11 @@ public class LocationSQL implements LocationDAO {
 
     /* UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     @Override
-    public void updateLocation(String location, String description) {
-        String sql = "";
+    public void updateLocation(int id, String location, String description) {
+        String sql = "UPDATE locations SET location = :location, description = :description WHERE id = :id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
+                    .addParameter("id", id)
                     .addParameter("location", location)
                     .addParameter("description", description)
                     .executeUpdate();

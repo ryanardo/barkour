@@ -62,7 +62,14 @@ public class LocationSQLTest {
     }
 
     @Test
-    public void updateLocation() throws Exception {
+    public void updateLocation_canUpdateLocation_true() throws Exception {
+        Location location1 = new Location("Sandy River Delta", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
+        daoLocation.add(location1);
+
+        int idUpdatedLocation = location1.getId();
+        daoLocation.updateLocation(idUpdatedLocation, "1000 Acres", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
+
+        assertEquals("1000 Acres", daoLocation.getById(idUpdatedLocation).getLocation());
     }
 
     @Test

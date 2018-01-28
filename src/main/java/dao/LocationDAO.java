@@ -15,7 +15,7 @@ public interface LocationDAO {
     List<Location> getAll();
 
     /* UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-    void updateLocation (String location, String description);
+    void updateLocation (int id, String location, String description);
 
     /* DELETE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     void deleteById(int id);
