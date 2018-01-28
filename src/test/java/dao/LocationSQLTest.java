@@ -73,7 +73,17 @@ public class LocationSQLTest {
     }
 
     @Test
-    public void deleteById() throws Exception {
+    public void deleteById_canDeleteLocationById_true() throws Exception {
+        Location location1 = new Location("Sandy River Delta", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
+        daoLocation.add(location1);
+
+        Location location2 = new Location("1000 Acres", "Absolutely enormous off-leash dog park.");
+        daoLocation.add(location2);
+
+        int idDeletedLocation = location1.getId();
+        daoLocation.deleteById(idDeletedLocation);
+
+        assertEquals(1, daoLocation.getAll().size());
     }
 
     @Test

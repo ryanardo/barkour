@@ -65,7 +65,7 @@ public class LocationSQL implements LocationDAO {
     /* DELETE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     @Override
     public void deleteById(int id) {
-        String sql = "";
+        String sql = "DELETE FROM locations WHERE id = :id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("id", id)
