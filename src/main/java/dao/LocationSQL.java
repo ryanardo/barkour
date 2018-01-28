@@ -77,7 +77,7 @@ public class LocationSQL implements LocationDAO {
 
     @Override
     public void deleteAll() {
-        String sql = "";
+        String sql = "DELETE FROM locations";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .executeUpdate();

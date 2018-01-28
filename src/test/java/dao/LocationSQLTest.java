@@ -88,6 +88,15 @@ public class LocationSQLTest {
 
     @Test
     public void deleteAll() throws Exception {
+        Location location1 = new Location("Sandy River Delta", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
+        daoLocation.add(location1);
+
+        Location location2 = new Location("1000 Acres", "Absolutely enormous off-leash dog park.");
+        daoLocation.add(location2);
+
+        daoLocation.deleteAll();
+
+        assertEquals(0, daoLocation.getAll().size());
     }
 
 }
