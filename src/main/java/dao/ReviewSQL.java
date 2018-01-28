@@ -1,6 +1,9 @@
 package dao;
 import models.*;
+import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+import org.sql2o.Sql2oException;
+
 import java.util.List;
 
 public class ReviewSQL implements ReviewDAO {
@@ -13,35 +16,74 @@ public class ReviewSQL implements ReviewDAO {
     /* CREATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     @Override
     public void add(Review review) {
-
+        String sql = "INSERT INTO reviews (title, review, rating, parkId) VALUES (:title, :review, :rating, :parkId)";
+        try (Connection con = sql2o.open()) {
+            int id = (int) con.createQuery(sql)
+                    .bind(review)
+                    .executeUpdate()
+                    .getKey();
+            review.setId(id);
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 
     /* REVIEW * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     @Override
     public Review getById(int id) {
-        return null;
+        String sql = "SELECT * FROM reviews WHERE id = :id";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Review.class);
+        }
     }
 
     @Override
     public List<Review> getAll() {
-        return null;
+        String sql = "SELECT * FROM reviews";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .executeAndFetch(Review.class);
+        }
     }
 
     /* UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     @Override
     public void updateReview(String title, String review, int rating, int parkId) {
-
+        String sql = "UPDATE reviews SET title = :title, review = :review, rating = :rating WHERE parkId = :parkId";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("title", title)
+                    .addParameter("review", review)
+                    .addParameter("rating", rating)
+                    .addParameter("parkId", parkId)
+                    .executeUpdate();
+        }
     }
 
     /* DELETE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     @Override
     public void deleteById(int id) {
-
+        String sql = "DELETE FROM reviews WHERE id = :id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 
     @Override
     public void deleteAll() {
-
+        String sql = "DELETE FROM reviews";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 
 }
