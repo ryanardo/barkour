@@ -1,12 +1,11 @@
 package dao;
 
-import models.Location;
+import models.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
-
 import static junit.framework.TestCase.assertEquals;
 
 public class LocationSQLTest {

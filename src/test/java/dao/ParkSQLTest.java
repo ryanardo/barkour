@@ -1,19 +1,13 @@
 package dao;
 
-import models.Location;
-import models.Park;
+import models.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
-
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.*;
 
-/**
- * Created by Guest on 1/26/18.
- */
 public class ParkSQLTest {
 
     private LocationDAO daoLocation;
