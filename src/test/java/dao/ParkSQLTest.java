@@ -62,7 +62,27 @@ public class ParkSQLTest {
     }
 
     @Test
-    public void findAll() throws Exception {
+    public void findAll_canFindAllParks_true() throws Exception {
+        Location location1 = new Location("Sandy River Delta", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
+        daoLocation.add(location1);
+        int idLocation1 = location1.getId();
+
+        Location location2 = new Location("PDX", "The City of Portland, found in the State of Oregon.");
+        daoLocation.add(location2);
+        int idLocation2 = location2.getId();
+
+        Park park1 = new Park("1000 Acres", "Dog Park located in the Sandy River Delta (not actually 1000 acres).", idLocation1);
+        daoPark.add(park1);
+        int idPark1 = park1.getId();
+
+        Park park2 = new Park("Hazelia Field", "\n" +
+                "The Hazelia Dog  Park, located at Hazelia Field at Luscher Farm, 17800 Stafford Road  is separated into two areas for our canine friends.\n" +
+                "\n" +
+                "The northern most area is for timid and shy dogs. The larger area fronting the parking lot is for more outgoing dogs. See the attached PDF under Supporting Documents for more information.", idLocation2);
+        daoPark.add(park2);
+        int idPark2 = park2.getId();
+
+        assertEquals(2, daoPark.getAll().size());
     }
 
     @Test
