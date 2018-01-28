@@ -50,10 +50,11 @@ public class ReviewSQL implements ReviewDAO {
 
     /* UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     @Override
-    public void updateReview(String title, String review, int rating, int parkId) {
-        String sql = "UPDATE reviews SET title = :title, review = :review, rating = :rating WHERE parkId = :parkId";
+    public void updateReview(int id, String title, String review, int rating, int parkId) {
+        String sql = "UPDATE reviews SET title = :title, review = :review, rating = :rating, parkId = :parkId WHERE id = :id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
+                    .addParameter("id", id)
                     .addParameter("title", title)
                     .addParameter("review", review)
                     .addParameter("rating", rating)

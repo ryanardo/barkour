@@ -89,7 +89,22 @@ public class ReviewSQLTest {
     }
 
     @Test
-    public void updateReview() throws Exception {
+    public void updateReview_canUpdateReview_true() throws Exception {
+        Location location1 = new Location("Sandy River Delta", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
+        daoLocation.add(location1);
+        int idLocation1 = location1.getId();
+
+        Park park1 = new Park("1000 Acres", "Dog Park located in the Sandy River Delta (not actually 1000 acres).", idLocation1);
+        daoPark.add(park1);
+        int idPark1 = park1.getId();
+
+        Review review1 = new Review("Awesome!", "Great dog park, absolutely LOVELY!",8, idPark1);
+        daoReview.add(review1);
+        int idReview1 = review1.getId();
+
+        daoReview.updateReview(idReview1, "Awesome!", "Great dog park, absolutely LOVELY!",10, idPark1);
+
+        assertEquals(10, daoReview.getById(idReview1).getRating());
     }
 
     @Test

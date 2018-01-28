@@ -15,7 +15,7 @@ public interface ReviewDAO {
     List<Review> getAll();
 
     /* UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-    void updateReview (String title, String review, int rating, int parkId);
+    void updateReview (int id, String title, String review, int rating, int parkId);
 
     /* DELETE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     void deleteById(int id);
