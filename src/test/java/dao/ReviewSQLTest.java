@@ -68,7 +68,24 @@ public class ReviewSQLTest {
     }
 
     @Test
-    public void findAll() throws Exception {
+    public void findAll_canFindAllReviews_true() throws Exception {
+        Location location1 = new Location("Sandy River Delta", "Gigantic, off leash dog park, with beautiful, wide open expanses for you and your pup.");
+        daoLocation.add(location1);
+        int idLocation1 = location1.getId();
+
+        Park park1 = new Park("1000 Acres", "Dog Park located in the Sandy River Delta (not actually 1000 acres).", idLocation1);
+        daoPark.add(park1);
+        int idPark1 = park1.getId();
+
+        Review review1 = new Review("Awesome!", "Great dog park, absolutely LOVELY!",8, idPark1);
+        daoReview.add(review1);
+        int idReview1 = review1.getId();
+
+        Review review2 = new Review("¯\\_(ツ)_/¯", "It's alright, could be better.",5, idPark1);
+        daoReview.add(review2);
+        int idReview2 = review2.getId();
+
+        assertEquals(2, daoReview.getAll().size());
     }
 
     @Test
