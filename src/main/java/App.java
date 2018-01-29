@@ -33,47 +33,91 @@ public class App {
 
         //delete all locations
 
+
         //delete all parks
 
+
         //delete all reviews
+
 
         /* CREATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
         //create a new location
-
+        post("/locations/new", "application/json", (request, response) -> {
+            Location location = gson.fromJson(request.body(), Location.class); //convert GSON to JSON
+            daoLocation.add(location); //run our dao methods
+            response.status(201);
+            response.type("application/json");
+            return gson.toJson(location); //convert JSON to GSON
+        });
 
         //create a new park
-
+        post("/locations/:location_id/parks?:park_id/new", "application/json", ((request, response) -> {
+            Park park = gson.fromJson(request.body(), Park.class);
+            daoPark.add(park);
+            response.status(201);
+            response.type("application/json");
+            return gson.toJson(park);
+        }));
 
         //create a new review
+        post("/locations/:location_id/parks?:park_id/reviews/:review_id/new", "application/json", ((request, response) -> {
+          Review review = gson.fromJson(request.body(), Review.class);
+          daoReview.add(review);
+          response.status(201);
+          response.type("application/json");
+          return gson.toJson(review);
+        }));
 
-        /* REVIEW * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-        //read a location
+        /* READ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+        //get a location
+        get("/locations", "application/json", ((request, response) -> {
+          if (daoLocation.getAll().size() > 0) {
+            return gson.toJson(daoLocation.getAll());
+          } else {
+            return "{\"message\":\"I'm sorry, but no Locations are currently listed within the database.\"}";
+          }
 
-        //read a park
+        }));
 
+        //get a park
+        //get("/locations/:location_id/parks/:park_id", "application/json", ((request, response) -> {}));
 
-        //read a review
+        //get a review
+        //get("/locations/:location_id/parks/:park_id/reviews/:review_id", "application/json", ((request, response) -> {}));
+
+        //get all locations
+        //get("/locations", "application/json", ((request, response) -> {}));
+
+        //get all parks
+        //get("/locations/:location_id/parks", "application/json", ((request, response) -> {}));
+
+        //get all reviews
+        //get("/locations/:location_id/parks/:park_id/reviews", "application/json", ((request, response) -> {}));
 
         /* UPDATE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
         //update a location
-
+        //post("/locations/new", "application/json", ((request, response) -> {}));
 
         //update a park
-
+        //post("/locations/:location_id/parks/:park_id/new", "application/json", ((request, response) -> {}));
 
         //update a review
+        //post("/locations/:location_id/parks/:park_id/reviews/:review_id/new", "application/json", ((request, response) -> {}));
 
         /* DELETE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
         //delete a location
 
+
         //delete a park
 
+
         //delete a review
+
 
     } //end of 'psvm'
 } //end of 'App.java'

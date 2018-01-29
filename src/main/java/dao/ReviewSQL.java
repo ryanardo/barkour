@@ -28,7 +28,7 @@ public class ReviewSQL implements ReviewDAO {
         }
     }
 
-    /* REVIEW * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* READ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     @Override
     public Review getById(int id) {
         String sql = "SELECT * FROM reviews WHERE id = :id";

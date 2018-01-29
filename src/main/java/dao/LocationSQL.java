@@ -30,7 +30,7 @@ public class LocationSQL implements LocationDAO {
         }
     }
 
-    /* REVIEW * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* READ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     @Override
     public Location getById(int id) {
         String sql = "SELECT * FROM locations WHERE id = :id";

@@ -29,7 +29,7 @@ public class ParkSQL implements ParkDAO {
         }
     }
 
-    /* REVIEW * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* READ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     @Override
     public Park getById(int id) {
         String sql = "SELECT * FROM parks WHERE id = :id";
